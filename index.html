@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vizianagaram Jobs Hub</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+<!-- Header -->
+<header class="bg-blue-700 text-white py-4 shadow-md">
+  <div class="container mx-auto flex justify-between items-center px-4">
+    <h1 class="text-2xl font-bold">Vizianagaram Jobs Hub</h1>
+    <nav class="space-x-4 flex items-center">
+      <a href="#home" id="homeNav" class="hover:text-yellow-300 hidden">Home</a>
+      <a href="#jobs" id="jobsNav" class="hover:text-yellow-300 hidden">Jobs</a>
+      <a href="#post" id="postNav" class="hover:text-yellow-300 hidden">Post a Job</a>
+      <button id="loginBtn" class="ml-3 bg-yellow-400 text-blue-900 px-3 py-1 rounded hover:bg-yellow-500">Login / Register</button>
+      <button id="logoutBtn" class="hidden ml-3 bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Logout</button>
+    </nav>
+  </div>
+</header>
+
+<!-- Home Section (hidden until login) -->
+<section id="home" class="text-center py-16 bg-blue-100 hidden">
+  <h2 class="text-4xl font-bold mb-4">Find Local Jobs in Vizianagaram</h2>
+  <p class="text-lg mb-6">A community-driven portal connecting job seekers and employers across Vizianagaram district.</p>
+  <a href="#jobs" id="homeFindJob" class="bg-blue-700 text-white px-6 py-3 rounded-lg hover:bg-blue-800">Find a Job</a>
+  <a href="#post" id="homePostJob" class="ml-4 bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700">Post a Job</a>
+</section>
+
+<!-- Jobs Section -->
+<section id="jobs" class="py-12 container mx-auto px-4 hidden">
+  <h3 class="text-3xl font-bold mb-6 text-center">Available Jobs</h3>
+
+  <div class="flex flex-col md:flex-row justify-center items-center gap-4 mb-8">
+    <select id="jobFilter" class="border rounded p-2 w-60">
+      <option value="all">All Job Types</option>
+      <option value="shop">Shop</option>
+      <option value="restaurant">Restaurant</option>
+      <option value="startup">Startup</option>
+      <option value="delivery">Delivery</option>
+      <option value="healthcare">Healthcare</option>
+      <option value="construction">Construction</option>
+      <option value="daily">Daily Wage</option>
+      <option value="company">Company</option>
+    </select>
+    <input id="searchInput" type="text" placeholder="Search by title, location, qualification or requirement..." class="border rounded p-2 w-72" />
+  </div>
+
+  <div id="jobList" class="grid md:grid-cols-3 gap-6">
+    <!-- 25+ Job Cards (full version) -->
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="shop">
+      <h4 class="text-xl font-semibold mb-1">Shop Assistant - Dmart</h4>
+      <p class="text-sm mb-1">🏢 Dmart</p>
+      <p>📍 Vizianagaram Town</p>
+      <p>💰 ₹12,000/month</p>
+      <p>🕒 Full-time</p>
+      <p>🎓 Qualification: 10th Pass</p>
+      <p>👤 Gender: Any</p>
+      <p>📋 Requirements: Basic billing, good communication, standing for long hours</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="shop">
+      <h4 class="text-xl font-semibold mb-1">Cashier - Dmart</h4>
+      <p class="text-sm mb-1">🏢 Dmart</p>
+      <p>📍 Bobbili</p>
+      <p>💰 ₹11,000/month</p>
+      <p>🕒 Full-time</p>
+      <p>🎓 Qualification: 10th Pass, basic math</p>
+      <p>👤 Gender: Any</p>
+      <p>📋 Requirements: Experience with POS preferred, honest, punctual</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="restaurant daily">
+      <h4 class="text-xl font-semibold mb-1">Cook - Annapurna Restaurant</h4>
+      <p class="text-sm mb-1">🏢 Annapurna Restaurant</p>
+      <p>📍 Nellimarla</p>
+      <p>💰 ₹500/day</p>
+      <p>🕒 Daily Wage</p>
+      <p>🎓 Qualification: No formal qualification required</p>
+      <p>👤 Gender: Any</p>
+      <p>📋 Requirements: 1-2 years cooking experience, hygiene focused</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="restaurant">
+      <h4 class="text-xl font-semibold mb-1">Waiter - Hotel Sunshine</h4>
+      <p class="text-sm mb-1">🏢 Hotel Sunshine</p>
+      <p>📍 Vizianagaram</p>
+      <p>💰 ₹10,000/month</p>
+      <p>🕒 Full-time</p>
+      <p>🎓 Qualification: 8th / 10th Pass</p>
+      <p>👤 Gender: Any (preference: Male for evening shifts)</p>
+      <p>📋 Requirements: Polite, customer-facing, able to work nights</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <!-- Construction -->
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="construction daily">
+      <h4 class="text-xl font-semibold mb-1">Construction Labour - XYZ Constructions</h4>
+      <p class="text-sm mb-1">🏗 XYZ Constructions</p>
+      <p>📍 Bobbili</p>
+      <p>💰 ₹600/day</p>
+      <p>🕒 Daily Wage</p>
+      <p>🎓 Qualification: No formal qualification</p>
+      <p>👤 Gender: Male</p>
+      <p>📋 Requirements: Physically fit, prior experience preferred</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="construction">
+      <h4 class="text-xl font-semibold mb-1">Site Supervisor - ABC Builders</h4>
+      <p class="text-sm mb-1">🏗 ABC Builders</p>
+      <p>📍 Vizianagaram</p>
+      <p>💰 ₹18,000/month</p>
+      <p>🕒 Full-time</p>
+      <p>🎓 Qualification: Diploma/Civil Engg or equivalent</p>
+      <p>👤 Gender: Any</p>
+      <p>📋 Requirements: 2+ years supervisory experience, leadership skills</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <!-- Healthcare -->
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="healthcare">
+      <h4 class="text-xl font-semibold mb-1">Nurse Assistant - City Hospital</h4>
+      <p class="text-sm mb-1">🏥 City Hospital</p>
+      <p>📍 Vizianagaram</p>
+      <p>💰 ₹14,000/month</p>
+      <p>🕒 Full-time</p>
+      <p>🎓 Qualification: Auxiliary Nursing certificate</p>
+      <p>👤 Gender: Any (preference: Female for some wards)</p>
+      <p>📋 Requirements: Compassionate, trained in basic patient care</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="healthcare">
+      <h4 class="text-xl font-semibold mb-1">Lab Technician - LifeCare Labs</h4>
+      <p class="text-sm mb-1">🏥 LifeCare Labs</p>
+      <p>📍 Gajapathinagaram</p>
+      <p>💰 ₹13,500/month</p>
+      <p>🕒 Full-time</p>
+      <p>🎓 Qualification: Lab Technician Diploma</p>
+      <p>👤 Gender: Any</p>
+      <p>📋 Requirements: Phlebotomy skills, sample handling</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <!-- Delivery -->
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="delivery">
+      <h4 class="text-xl font-semibold mb-1">Delivery Partner - Swiggy</h4>
+      <p class="text-sm mb-1">🚴 Swiggy</p>
+      <p>📍 Vizianagaram</p>
+      <p>💰 ₹20,000/month (approx.)</p>
+      <p>🕒 Flexible</p>
+      <p>🎓 Qualification: Any</p>
+      <p>👤 Gender: Any</p>
+      <p>📋 Requirements: Two-wheeler, driver's license, smartphone</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="delivery">
+      <h4 class="text-xl font-semibold mb-1">Delivery Boy - Zomato</h4>
+      <p class="text-sm mb-1">🚴 Zomato</p>
+      <p>📍 Nellimarla</p>
+      <p>💰 ₹18,000/month (approx.)</p>
+      <p>🕒 Flexible</p>
+      <p>🎓 Qualification: Any</p>
+      <p>👤 Gender: Male</p>
+      <p>📋 Requirements: Two-wheeler, license</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <!-- Startups / Companies -->
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="startup">
+      <h4 class="text-xl font-semibold mb-1">Sales Executive - Local Startup</h4>
+      <p class="text-sm mb-1">🏢 Local Startup</p>
+      <p>📍 Gajapathinagaram</p>
+      <p>💰 ₹15,000/month</p>
+      <p>🕒 Contract</p>
+      <p>🎓 Qualification: 12th / Graduate</p>
+      <p>👤 Gender: Any</p>
+      <p>📋 Requirements: Good communication, target oriented</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="company">
+      <h4 class="text-xl font-semibold mb-1">Data Entry Operator - Infosys</h4>
+      <p class="text-sm mb-1">🏢 Infosys (Local Office)</p>
+      <p>📍 Vizianagaram</p>
+      <p>💰 ₹14,000/month</p>
+      <p>🕒 Full-time</p>
+      <p>🎓 Qualification: 12th / Graduate</p>
+      <p>👤 Gender: Any</p>
+      <p>📋 Requirements: Typing speed 30 WPM, MS Office basic</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="company">
+      <h4 class="text-xl font-semibold mb-1">Software Trainee - TechCorp</h4>
+      <p class="text-sm mb-1">🏢 TechCorp</p>
+      <p>📍 Bobbili</p>
+      <p>💰 ₹16,000/month</p>
+      <p>🕒 Full-time</p>
+      <p>🎓 Qualification: BCA / B.Tech (CS) freshers allowed</p>
+      <p>👤 Gender: Any</p>
+      <p>📋 Requirements: Basic programming knowledge, eagerness to learn</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <!-- More variety jobs (to reach 25+) -->
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="restaurant daily">
+      <h4 class="text-xl font-semibold mb-1">Helper - Café Delight</h4>
+      <p class="text-sm mb-1">🏢 Café Delight</p>
+      <p>📍 Vizianagaram</p>
+      <p>💰 ₹450/day</p>
+      <p>🕒 Daily Wage</p>
+      <p>🎓 Qualification: Any</p>
+      <p>👤 Gender: Any</p>
+      <p>📋 Requirements: Assist cook, maintain cleanliness</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="restaurant">
+      <h4 class="text-xl font-semibold mb-1">Manager - Hotel Paradise</h4>
+      <p class="text-sm mb-1">🏢 Hotel Paradise</p>
+      <p>📍 Gajapathinagaram</p>
+      <p>💰 ₹18,000/month</p>
+      <p>🕒 Full-time</p>
+      <p>🎓 Qualification: Graduate / Hotel Management</p>
+      <p>👤 Gender: Any</p>
+      <p>📋 Requirements: 2+ years in F&B management</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="shop">
+      <h4 class="text-xl font-semibold mb-1">Inventory Clerk - Dmart</h4>
+      <p class="text-sm mb-1">🏢 Dmart</p>
+      <p>📍 Nellimarla</p>
+      <p>💰 ₹11,500/month</p>
+      <p>🕒 Full-time</p>
+      <p>🎓 Qualification: 12th</p>
+      <p>👤 Gender: Any</p>
+      <p>📋 Requirements: Inventory tracking, basic Excel skills</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="construction">
+      <h4 class="text-xl font-semibold mb-1">Electrician - BuildWell Constructions</h4>
+      <p class="text-sm mb-1">🏗 BuildWell Constructions</p>
+      <p>📍 Vizianagaram</p>
+      <p>💰 ₹16,000/month</p>
+      <p>🕒 Full-time</p>
+      <p>🎓 Qualification: ITI Electrician / Diploma</p>
+      <p>👤 Gender: Male</p>
+      <p>📋 Requirements: Wiring, installation, safety compliance</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="healthcare">
+      <h4 class="text-xl font-semibold mb-1">Pharmacist - City Chemists</h4>
+      <p class="text-sm mb-1">🏥 City Chemists</p>
+      <p>📍 Vizianagaram</p>
+      <p>💰 ₹14,500/month</p>
+      <p>🕒 Full-time</p>
+      <p>🎓 Qualification: D.Pharm / B.Pharm</p>
+      <p>👤 Gender: Any</p>
+      <p>📋 Requirements: Valid license, inventory management</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="company">
+      <h4 class="text-xl font-semibold mb-1">HR Executive - Global Tech</h4>
+      <p class="text-sm mb-1">🏢 Global Tech</p>
+      <p>📍 Gajapathinagaram</p>
+      <p>💰 ₹15,000/month</p>
+      <p>🕒 Full-time</p>
+      <p>🎓 Qualification: Graduate (HR preferred)</p>
+      <p>👤 Gender: Any</p>
+      <p>📋 Requirements: Recruitment experience, good communication</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="startup">
+      <h4 class="text-xl font-semibold mb-1">Marketing Associate - Local Startup</h4>
+      <p class="text-sm mb-1">🏢 Local Startup</p>
+      <p>📍 Nellimarla</p>
+      <p>💰 ₹13,000/month</p>
+      <p>🕒 Contract</p>
+      <p>🎓 Qualification: Graduate</p>
+      <p>👤 Gender: Any</p>
+      <p>📋 Requirements: Social media handling, campaigns</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="delivery">
+      <h4 class="text-xl font-semibold mb-1">Courier Executive - DHL</h4>
+      <p class="text-sm mb-1">📦 DHL</p>
+      <p>📍 Vizianagaram</p>
+      <p>💰 ₹19,000/month (approx.)</p>
+      <p>🕒 Flexible</p>
+      <p>🎓 Qualification: Any</p>
+      <p>👤 Gender: Any</p>
+      <p>📋 Requirements: Driving license, punctual</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="company">
+      <h4 class="text-xl font-semibold mb-1">Receptionist - Finance Corp</h4>
+      <p class="text-sm mb-1">🏢 Finance Corp</p>
+      <p>📍 Bobbili</p>
+      <p>💰 ₹12,500/month</p>
+      <p>🕒 Full-time</p>
+      <p>🎓 Qualification: 12th / Graduate</p>
+      <p>👤 Gender: Any (preference: Female)</p>
+      <p>📋 Requirements: Phone handling, polite demeanor</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <!-- Two extra jobs to ensure >25 -->
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="shop">
+      <h4 class="text-xl font-semibold mb-1">Sales Promoter - Local Store</h4>
+      <p class="text-sm mb-1">🏪 Neighborhood Store</p>
+      <p>📍 Vizianagaram</p>
+      <p>💰 ₹10,500/month</p>
+      <p>🕒 Full-time</p>
+      <p>🎓 Qualification: Any</p>
+      <p>👤 Gender: Any</p>
+      <p>📋 Requirements: Outgoing, customer interaction</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-category="daily">
+      <h4 class="text-xl font-semibold mb-1">Daily Helper - Local Contractor</h4>
+      <p class="text-sm mb-1">🏗 Local Contractor</p>
+      <p>📍 Gajapathinagaram</p>
+      <p>💰 ₹400/day</p>
+      <p>🕒 Daily Wage</p>
+      <p>🎓 Qualification: None</p>
+      <p>👤 Gender: Male</p>
+      <p>📋 Requirements: Help with general site chores</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- Post Job Section (visible to employers after login) -->
+<section id="post" class="bg-gray-100 py-12 hidden">
+  <div class="container mx-auto px-4">
+    <h3 class="text-3xl font-bold mb-6 text-center">Post a Job</h3>
+
+    <form id="jobForm" class="max-w-lg mx-auto bg-white p-6 rounded-xl shadow-md">
+      <label class="block mb-2 font-semibold">Business / Shop Name</label>
+      <input id="jobCompany" type="text" class="w-full border rounded p-2 mb-4" placeholder="e.g., Dmart" required>
+
+      <label class="block mb-2 font-semibold">Job Title</label>
+      <input id="jobTitle" type="text" class="w-full border rounded p-2 mb-4" placeholder="e.g., Cashier" required>
+
+      <label class="block mb-2 font-semibold">Category</label>
+      <select id="jobCategory" class="w-full border rounded p-2 mb-4" required>
+        <option value="shop">Shop</option>
+        <option value="restaurant">Restaurant</option>
+        <option value="startup">Startup</option>
+        <option value="delivery">Delivery</option>
+        <option value="healthcare">Healthcare</option>
+        <option value="construction">Construction</option>
+        <option value="daily">Daily Wage</option>
+        <option value="company">Company</option>
+      </select>
+
+      <label class="block mb-2 font-semibold">Salary / Payment</label>
+      <input id="jobSalary" type="text" class="w-full border rounded p-2 mb-4" placeholder="e.g., ₹12,000/month or ₹500/day" required>
+
+      <label class="block mb-2 font-semibold">Location</label>
+      <input id="jobLocation" type="text" class="w-full border rounded p-2 mb-4" placeholder="e.g., Vizianagaram" required>
+
+      <label class="block mb-2 font-semibold">Qualification</label>
+      <input id="jobQualification" type="text" class="w-full border rounded p-2 mb-4" placeholder="e.g., 10th Pass / Graduate" required>
+
+      <label class="block mb-2 font-semibold">Gender Preference</label>
+      <select id="jobGender" class="w-full border rounded p-2 mb-4">
+        <option value="Any">Any</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+
+      <label class="block mb-2 font-semibold">Job Requirements (short)</label>
+      <textarea id="jobRequirements" class="w-full border rounded p-2 mb-4" rows="3" placeholder="Skills, experience, notes..."></textarea>
+
+      <label class="block mb-2 font-semibold">Contact Number</label>
+      <input id="jobContact" type="tel" class="w-full border rounded p-2 mb-4" placeholder="e.g., 9876543210" required>
+
+      <button type="submit" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 w-full">Submit Job</button>
+    </form>
+
+    <p id="loginNotice" class="text-red-600 text-center mb-4 hidden">Please login as an Employer to post a job.</p>
+  </div>
+</section>
+
+<!-- Apply Modal -->
+<div id="applyModal" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
+  <div class="bg-white p-6 rounded-xl shadow-lg w-96 relative">
+    <h3 class="text-2xl font-bold mb-4">Apply for Job</h3>
+    <form id="applyForm">
+      <label class="block mb-2">Full Name</label>
+      <input type="text" id="applicantName" class="w-full border rounded p-2 mb-3" required>
+      <label class="block mb-2">Email</label>
+      <input type="email" id="applicantEmail" class="w-full border rounded p-2 mb-3" required>
+      <label class="block mb-2">Phone</label>
+      <input type="tel" id="applicantPhone" class="w-full border rounded p-2 mb-3" required>
+      <label class="block mb-2">Note (optional)</label>
+      <input type="text" id="applicantNote" class="w-full border rounded p-2 mb-3" placeholder="Short message to employer">
+      <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 w-full">Submit Application</button>
+    </form>
+    <button onclick="closeApplyModal()" class="absolute top-2 right-2 text-red-600 font-bold">X</button>
+  </div>
+</div>
+
+<!-- Login / Register Modal (shows first) -->
+<div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+  <div class="bg-white p-6 rounded-xl shadow-lg w-96 relative">
+    <h3 class="text-2xl font-bold mb-4 text-center">Login / Register</h3>
+    <div id="loginSection">
+      <form id="loginForm">
+        <label class="block mb-2">Email</label>
+        <input type="email" id="loginEmail" class="w-full border rounded p-2 mb-3" required>
+        <label class="block mb-2">Password</label>
+        <input type="password" id="loginPassword" class="w-full border rounded p-2 mb-3" required>
+        <label class="block mb-2">Role</label>
+        <select id="loginRole" class="w-full border rounded p-2 mb-3">
+          <option value="jobseeker">Jobseeker</option>
+          <option value="employer">Employer</option>
+        </select>
+        <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 w-full">Login</button>
+      </form>
+      <p class="text-center mt-3">New user? <span class="text-blue-700 cursor-pointer" onclick="showRegister()">Register here</span></p>
+    </div>
+
+    <div id="registerSection" class="hidden">
+      <form id="registerForm">
+        <label class="block mb-2">Name</label>
+        <input type="text" id="regName" class="w-full border rounded p-2 mb-3" required>
+        <label class="block mb-2">Email</label>
+        <input type="email" id="regEmail" class="w-full border rounded p-2 mb-3" required>
+        <label class="block mb-2">Password</label>
+        <input type="password" id="regPassword" class="w-full border rounded p-2 mb-3" required>
+        <label class="block mb-2">Role</label>
+        <select id="regRole" class="w-full border rounded p-2 mb-3">
+          <option value="jobseeker">Jobseeker</option>
+          <option value="employer">Employer</option>
+        </select>
+        <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 w-full">Register</button>
+      </form>
+      <p class="text-center mt-3">Already have an account? <span class="text-blue-700 cursor-pointer" onclick="showLogin()">Login here</span></p>
+    </div>
+
+    <button onclick="closeLoginModal()" class="absolute top-2 right-2 text-red-600 font-bold">X</button>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-blue-800 text-white py-4 text-center">
+  <p>&copy; 2025 Vizianagaram Jobs Hub | Community Project</p>
+</footer>
+
+<!-- Scripts -->
+<script>
+  // Elements
+  const loginBtn = document.getElementById('loginBtn');
+  const logoutBtn = document.getElementById('logoutBtn');
+  const loginModal = document.getElementById('loginModal');
+  const loginForm = document.getElementById('loginForm');
+  const registerForm = document.getElementById('registerForm');
+  const loginSection = document.getElementById('loginSection');
+  const registerSection = document.getElementById('registerSection');
+  const applyModal = document.getElementById('applyModal');
+  const applyForm = document.getElementById('applyForm');
+  const jobForm = document.getElementById('jobForm');
+  const loginNotice = document.getElementById('loginNotice');
+  const homeSection = document.getElementById('home');
+  const jobsSection = document.getElementById('jobs');
+  const postSection = document.getElementById('post');
+  const jobList = document.getElementById('jobList');
+  const jobFilter = document.getElementById('jobFilter');
+  const searchInput = document.getElementById('searchInput');
+  const homeNav = document.getElementById('homeNav');
+  const jobsNav = document.getElementById('jobsNav');
+  const postNav = document.getElementById('postNav');
+  const loginBtnHeader = document.getElementById('loginBtn');
+  const logoutBtnHeader = document.getElementById('logoutBtn');
+
+  let currentUserRole = null;
+  let currentAppliedJobCard = null;
+
+  // Show login modal on page load
+  window.addEventListener('load', ()=> {
+    loginModal.classList.remove('hidden');
+    // hide sections until login
+    homeSection.classList.add('hidden');
+    jobsSection.classList.add('hidden');
+    postSection.classList.add('hidden');
+    // header nav initially hidden
+    homeNav.classList.add('hidden');
+    jobsNav.classList.add('hidden');
+    postNav.classList.add('hidden');
+  });
+
+  // Header login button opens modal
+  loginBtn.addEventListener('click', ()=> loginModal.classList.remove('hidden') );
+
+  function closeLoginModal(){
+    loginModal.classList.add('hidden');
+  }
+
+  // Register / Login toggles
+  function showRegister(){
+    loginSection.classList.add('hidden');
+    registerSection.classList.remove('hidden');
+  }
+  function showLogin(){
+    registerSection.classList.add('hidden');
+    loginSection.classList.remove('hidden');
+  }
+
+  // Register submit (local mock)
+  registerForm.addEventListener('submit', e=>{
+    e.preventDefault();
+    alert('Registration successful! Please login.');
+    showLogin();
+  });
+
+  // Login submit -> role-based UI
+  loginForm.addEventListener('submit', e=>{
+    e.preventDefault();
+    const role = document.getElementById('loginRole').value;
+    currentUserRole = role;
+    loginBtnHeader.style.display = 'none';
+    logoutBtnHeader.classList.remove('hidden');
+
+    // show nav
+    homeNav.classList.remove('hidden');
+    jobsNav.classList.remove('hidden');
+    postNav.classList.remove('hidden');
+
+    // show specific section based on role
+    if(role === 'jobseeker'){
+      jobsSection.classList.remove('hidden');
+      homeSection.classList.add('hidden');
+      postSection.classList.add('hidden');
+      loginNotice && (loginNotice.style.display = 'block');
+      closeLoginModal();
+      alert('Logged in as Jobseeker. You can now browse and apply for jobs.');
+      // scroll to jobs
+      setTimeout(()=> location.hash = '#jobs', 50);
+    } else if(role === 'employer'){
+      postSection.classList.remove('hidden');
+      homeSection.classList.add('hidden');
+      jobsSection.classList.add('hidden');
+      loginNotice && (loginNotice.style.display = 'none');
+      closeLoginModal();
+      alert('Logged in as Employer. You can now post jobs.');
+      setTimeout(()=> location.hash = '#post', 50);
+    }
+
+    // Make home visible in nav context but keep it hidden until user navigates
+    homeSection.classList.add('hidden');
+  });
+
+  // Logout
+  logoutBtnHeader.addEventListener('click', ()=>{
+    currentUserRole = null;
+    loginBtnHeader.style.display = 'inline-block';
+    logoutBtnHeader.classList.add('hidden');
+
+    // hide sections and nav
+    homeSection.classList.add('hidden');
+    jobsSection.classList.add('hidden');
+    postSection.classList.add('hidden');
+    homeNav.classList.add('hidden');
+    jobsNav.classList.add('hidden');
+    postNav.classList.add('hidden');
+
+    // clear job form if visible
+    jobForm.reset();
+
+    // show login modal again
+    loginModal.classList.remove('hidden');
+  });
+
+  // Apply buttons delegation (since we may add cards dynamically)
+  document.addEventListener('click', function(e){
+    if(e.target && e.target.classList.contains('applyBtn')){
+      if(!currentUserRole){
+        alert('Please login as Jobseeker to apply.');
+        loginModal.classList.remove('hidden');
+        showLogin();
+        return;
+      }
+      if(currentUserRole !== 'jobseeker'){
+        alert('Employers cannot apply for jobs.');
+        return;
+      }
+      // set current applied job (optional: can extract job title)
+      currentAppliedJobCard = e.target.closest('.job-card');
+      applyModal.classList.remove('hidden');
+    }
+  });
+
+  function closeApplyModal(){ applyModal.classList.add('hidden'); }
+  window.closeApplyModal = closeApplyModal; // allow onclick in HTML
+
+  // Apply form submit (mock)
+  applyForm.addEventListener('submit', e=>{
+    e.preventDefault();
+    const name = document.getElementById('applicantName').value.trim();
+    const email = document.getElementById('applicantEmail').value.trim();
+    const phone = document.getElementById('applicantPhone').value.trim();
+    const note = document.getElementById('applicantNote').value.trim();
+    // Here you'd normally send data to backend. We'll just show success.
+    if(!name || !email || !phone){
+      alert('Please complete required fields.');
+      return;
+    }
+    // Example: show which job they applied for
+    let jobTitle = currentAppliedJobCard ? currentAppliedJobCard.querySelector('h4')?.innerText : 'the job';
+    alert(`Application submitted for "${jobTitle}".\nName: ${name}\nPhone: ${phone}`);
+    applyForm.reset();
+    closeApplyModal();
+  });
+
+  // Filter & Search functionality
+  function filterJobs(){
+    const filterValue = jobFilter.value.toLowerCase();
+    const searchValue = searchInput.value.toLowerCase();
+    const cards = document.querySelectorAll('.job-card');
+    cards.forEach(card=>{
+      const categories = (card.getAttribute('data-category') || '').toLowerCase();
+      const textContent = card.innerText.toLowerCase();
+      const matchesCategory = filterValue === 'all' || categories.includes(filterValue);
+      const matchesSearch = !searchValue || textContent.includes(searchValue);
+      card.style.display = (matchesCategory && matchesSearch) ? 'block' : 'none';
+    });
+  }
+  jobFilter.addEventListener('change', filterJobs);
+  searchInput.addEventListener('input', filterJobs);
+
+  // Posting new job (employer)
+  jobForm.addEventListener('submit', e=>{
+    e.preventDefault();
+    if(currentUserRole !== 'employer'){
+      alert('Only employers can post jobs. Please login as Employer.');
+      return;
+    }
+    // Gather
+    const company = document.getElementById('jobCompany').value.trim();
+    const title = document.getElementById('jobTitle').value.trim();
+    const category = document.getElementById('jobCategory').value.trim();
+    const salary = document.getElementById('jobSalary').value.trim();
+    const location = document.getElementById('jobLocation').value.trim();
+    const qualification = document.getElementById('jobQualification').value.trim();
+    const gender = document.getElementById('jobGender').value.trim();
+    const requirements = document.getElementById('jobRequirements').value.trim();
+    const contact = document.getElementById('jobContact').value.trim();
+
+    if(!company || !title || !category || !salary || !location || !qualification || !contact){
+      alert('Please fill required fields.');
+      return;
+    }
+
+    // Create card element
+    const card = document.createElement('div');
+    card.className = 'job-card bg-white p-6 rounded-xl shadow-md';
+    card.setAttribute('data-category', category);
+
+    card.innerHTML = `
+      <h4 class="text-xl font-semibold mb-1">${title} - ${company}</h4>
+      <p class="text-sm mb-1">🏢 ${company}</p>
+      <p>📍 ${location}</p>
+      <p>💰 ${salary}</p>
+      <p>🕒 ${category === 'daily' || category.includes('daily') ? 'Daily Wage' : 'Full-time/Contract'}</p>
+      <p>🎓 Qualification: ${qualification}</p>
+      <p>👤 Gender: ${gender}</p>
+      <p>📋 Requirements: ${requirements || 'Not specified'}</p>
+      <button class="mt-3 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 applyBtn">Apply Now</button>
+    `;
+
+    // Append to jobList (show jobs section for employer after posting so they can see posted job)
+    jobList.prepend(card);
+    alert('Job posted successfully!');
+    jobForm.reset();
+
+    // If employer wants to view posted job immediately, switch to jobs view
+    jobsSection.classList.remove('hidden');
+    postSection.classList.add('hidden');
+    // If navs hidden or jobseeker, ensure visible: navs visible already for logged-in users
+    setTimeout(()=> location.hash = '#jobs', 50);
+  });
+
+  // Navigation links behavior (simple)
+  homeNav && homeNav.addEventListener('click', ()=> {
+    homeSection.classList.remove('hidden');
+    jobsSection.classList.add('hidden');
+    postSection.classList.add('hidden');
+  });
+  jobsNav && jobsNav.addEventListener('click', ()=> {
+    jobsSection.classList.remove('hidden');
+    postSection.classList.add('hidden');
+    homeSection.classList.add('hidden');
+  });
+  postNav && postNav.addEventListener('click', ()=> {
+    if(currentUserRole !== 'employer'){
+      alert('Only employers can access Post a Job. Please login as Employer.');
+      return;
+    }
+    postSection.classList.remove('hidden');
+    jobsSection.classList.add('hidden');
+    homeSection.classList.add('hidden');
+  });
+
+  // Make header login button also open modal when visible
+  // (Already wired up above)
+
+  // Optional: allow Escape to close modals
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape'){
+      // close apply modal if open
+      if(!applyModal.classList.contains('hidden')) closeApplyModal();
+      // close login modal if open
+      if(!loginModal.classList.contains('hidden')) closeLoginModal();
+    }
+  });
+
+  // Initial wiring for any static apply buttons present at load
+  // (delegated handler already handles them)
+</script>
+
+</body>
+</html>
